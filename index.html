@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -16,15 +17,89 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" href="./CSS/style.css" />
+
     <title>Tic Tac Toe</title>
   </head>
-  <body id="modal-remover">
+  <body>
     <header class="container">
       <h1 class="display-4 text-center">TIC-TAC-TOE</h1>
     </header>
 
     <main>
-      <section class="mt-4"></section>
+      <section class="mt-4">
+        <div class="col-8 mx-auto board board-hidden" id="board-game">
+          <div
+            class="col-12 btn-group-vertical mx-auto my-3"
+            role="toolbar"
+            aria-label="Toolbar with button groups"
+          >
+            <div
+              class="btn-group btn-group-lg"
+              role="group"
+              aria-label="First group"
+            >
+              <a
+                type="button"
+                class="btn black-tile board-tile mr-2 mb-2"
+                data-position="1"
+              ></a>
+              <a
+                type="button"
+                class="btn black-tile board-tile mx-2 mb-2"
+                data-position="2"
+              ></a>
+              <a
+                type="button"
+                class="btn black-tile board-tile ml-2 mb-2"
+                data-position="3"
+              ></a>
+            </div>
+            <div
+              class="btn-group btn-group-lg"
+              role="group"
+              aria-label="Second group"
+            >
+              <a
+                type="button"
+                class="btn black-tile board-tile mr-2 my-2"
+                data-position="4"
+              ></a>
+              <a
+                type="button"
+                class="btn black-tile board-tile mx-2 my-2"
+                data-position="5"
+              ></a>
+              <a
+                type="button"
+                class="btn black-tile board-tile ml-2 my-2"
+                data-position="6"
+              ></a>
+            </div>
+            <div
+              class="btn-group btn-group-lg"
+              role="group"
+              aria-label="Third group"
+            >
+              <a
+                type="button"
+                class="btn black-tile board-tile mr-2 mt-2"
+                data-position="7"
+              ></a>
+              <a
+                type="button"
+                class="btn black-tile board-tile mx-2 mt-2"
+                data-position="8"
+              ></a>
+              <a
+                type="button"
+                class="btn black-tile board-tile ml-2 mt-2"
+                data-position="9"
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer></footer>
