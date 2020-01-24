@@ -10,14 +10,14 @@ export class GameManager {
 
 
 
-  winner(player1, player2, winToken){
+  winner(winToken){
     if(winToken){
-      if (winToken == player1.token){
-        player1.playerScore();
-        console.log(`player1 has won ${player1.name} score: ${player1.playerScore()}`);
-      }else if (winToken == player2.token){
-        player2.playerScore();
-        console.log(`player1 has won ${player2.name} score: ${player2.playerScore()}`);
+      if (winToken == this.player1.token){
+        this.player1.countScore();
+        console.log(`player1 has won ${this.player1.name} score: ${this.player1.playerScore}`);
+      }else if (winToken == this.player2.token){
+        this.player2.countScore();
+        console.log(`player2 has won ${this.player2.name} score: ${this.player2.playerScore}`);
       }
     }
   }
