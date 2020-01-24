@@ -2,7 +2,7 @@ export class Player {
   constructor(name, token) {
     this._name = name;
     this._token = token;
-    this._gender = 'male';
+    this._playerScore = 0;
   }
 
   get name() {
@@ -13,16 +13,20 @@ export class Player {
     return this._name = nam;
   }
 
-  set gender(mf){
-    return this._gender = mf;
-  }
-
   get token() {
     return this._token;
   }
 
   set token(token){
     return this._token = token;
+  }
+
+  countScore(){
+    return this._playerScore++;
+  }
+
+  get playerScore(){
+    return this._playerScore;
   }
 }
 
