@@ -45,12 +45,12 @@ export class Board {
   }
 
   checkWinPattern(){
-    if(this.checkColumns){
-      return this.checkColumns;
-    }else if(this.checkRows){
-      return this.checkRows;
-    }else if(this.checkDiagonals){
-      return this.checkDiagonals
+    if(this.checkColumns()){
+      return this.checkColumns();
+    }else if(this.checkRows()){
+      return this.checkRows();
+    }else if(this.checkDiagonals()){
+      return this.checkDiagonals()
     }
   }
 
