@@ -16,7 +16,7 @@ export class Board {
   checkRows = () => {
     if (this._board[0] === this._board[1] && this._board[0] === this._board[2]) {
       return this._board[0];
-    } else if (this._board[3] === this._board[4] && board[3] === this._board[5]) {
+    } else if (this._board[3] === this._board[4] && this._board[3] === this._board[5]) {
       return this._board[3];
     } else if (this._board[6] === this._board[7] && this._board[6] === this._board[8]) {
       return this._board[6];
