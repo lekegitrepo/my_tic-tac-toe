@@ -139,6 +139,11 @@ function initializePlay() {
         console.log(gm.getCurrentPlayer().token)
         gameBoard.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.getCurrentPlayer().token)
         gm.roundSelector()
+        if(gameBoard.checkWinPattern()){
+          boardTiles.removeEventListener('click', handleGame)
+          console.log(gameBoard.checkWinPattern())
+          console.log('listener removed')
+        }
       }
     });
     menu.style.display = 'none';
