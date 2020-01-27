@@ -117,7 +117,6 @@ console.log(playerX.token);
 console.log(gm.getCurrentPlayer().token);
 
 function handleGame() {
-  //event.removeEventListener("click", 'method here');
   console.log('activate new buttons');
 }
 
