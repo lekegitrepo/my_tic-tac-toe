@@ -1,142 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="./CSS/style.css" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
-    <title>Tic Tac Toe</title>
-  </head>
-  <body>
-    <header class="container">
-      <h1 class="display-4 text-center">TIC-TAC-TOE</h1>
-    </header>
+  <link rel="stylesheet" href="./CSS/style.css" />
 
-    <main>
-      <section class="mt-4">
-        <div id="game-menu" class="col-4">
+  <title>Tic Tac Toe</title>
+</head>
+
+<body>
+  <header class="container">
+    <h1 class="display-4 text-center">TIC-TAC-TOE</h1>
+  </header>
+
+  <main>
+    <section class="mt-4">
+      <div id="game-menu" class="col-4">
+        <div>
           <div>
-            <div>
-              <label for="playerX"></label>
-              <input id="playerX" class="form-group" type="text" placeholder="Enter your name here">
-            </div>
-            <div>
-              <label for="playerO"></label>
-              <input id="playerO" class="form-group" type="text" placeholder="Enter your name here">
-            </div>
+            <label for="playerX"></label>
+            <input id="playerX" class="form-group" type="text" placeholder="Enter your name here">
           </div>
-          <div class="menu-btn">
-            <button id="start" class="btn btn-primary">Start</button>
+          <div>
+            <label for="playerO"></label>
+            <input id="playerO" class="form-group" type="text" placeholder="Enter your name here">
           </div>
         </div>
-        <div class="col-8 mx-auto board board-hidden" id="board-game">
-          <div
-            class="col-12 btn-group-vertical mx-auto my-3"
-            role="toolbar"
-            aria-label="Toolbar with button groups"
-          >
-            <div
-              class="btn-group btn-group-lg"
-              role="group"
-              aria-label="First group"
-            >
-              <a
-                type="button"
-                class="btn black-tile board-tile mr-2 mb-2"
-                data-position="0"
-              ></a>
-              <a
-                type="button"
-                class="btn black-tile board-tile mx-2 mb-2"
-                data-position="1"
-              ></a>
-              <a
-                type="button"
-                class="btn black-tile board-tile ml-2 mb-2"
-                data-position="2"
-              ></a>
+        <div class="menu-btn">
+          <button id="start" class="btn btn-primary">Start</button>
+        </div>
+      </div>
+      <div class="container mx-4">
+        <div class="row">
+          <div class="col-3 score-board">
+            <h5>Score Board</h5>
+            <div class="row">
+              <span class="col-4">PlayerX</span> <span class="col-4">1</span>
             </div>
-            <div
-              class="btn-group btn-group-lg"
-              role="group"
-              aria-label="Second group"
-            >
-              <a
-                type="button"
-                class="btn black-tile board-tile mr-2 my-2"
-                data-position="3"
-              ></a>
-              <a
-                type="button"
-                class="btn black-tile board-tile mx-2 my-2"
-                data-position="4"
-              ></a>
-              <a
-                type="button"
-                class="btn black-tile board-tile ml-2 my-2"
-                data-position="5"
-              ></a>
+            <div class="row">
+              <span class="col-4">PlayerO</span> <span class="col-4">1</span>
             </div>
-            <div
-              class="btn-group btn-group-lg"
-              role="group"
-              aria-label="Third group"
-            >
-              <a
-                type="button"
-                class="btn black-tile board-tile mr-2 mt-2"
-                data-position="6"
-              ></a>
-              <a
-                type="button"
-                class="btn black-tile board-tile mx-2 mt-2"
-                data-position="7"
-              ></a>
-              <a
-                type="button"
-                class="btn black-tile board-tile ml-2 mt-2"
-                data-position="8"
-              ></a>
+            <div class="row">
+              <button class="btn btn-primary btn-sm col-4 mr-2">Next Round</button> <button class="btn btn-primary btn-sm col-4">Start New Game</button>
+            </div>
+          </div>
+
+          <div class="col-7 board board-hidden" id="board-game">
+            <div class="col-12 btn-group-vertical mx-auto my-3" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group btn-group-lg" role="group" aria-label="First group">
+                <a type="button" class="btn black-tile board-tile mr-2 mb-2" data-position="0"></a>
+                <a type="button" class="btn black-tile board-tile mx-2 mb-2" data-position="1"></a>
+                <a type="button" class="btn black-tile board-tile ml-2 mb-2" data-position="2"></a>
+              </div>
+              <div class="btn-group btn-group-lg" role="group" aria-label="Second group">
+                <a type="button" class="btn black-tile board-tile mr-2 my-2" data-position="3"></a>
+                <a type="button" class="btn black-tile board-tile mx-2 my-2" data-position="4"></a>
+                <a type="button" class="btn black-tile board-tile ml-2 my-2" data-position="5"></a>
+              </div>
+              <div class="btn-group btn-group-lg" role="group" aria-label="Third group">
+                <a type="button" class="btn black-tile board-tile mr-2 mt-2" data-position="6"></a>
+                <a type="button" class="btn black-tile board-tile mx-2 mt-2" data-position="7"></a>
+                <a type="button" class="btn black-tile board-tile ml-2 mt-2" data-position="8"></a>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer></footer>
+  <footer></footer>
 
-    <!-- Optional JavaScript -->
-    <!-- <script type="module" src="./JS/app.js"></script> -->
-    <script type="module" src="./app.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+  <!-- Optional JavaScript -->
+  <!-- <script type="module" src="./JS/app.js"></script> -->
+  <script type="module" src="./app.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
