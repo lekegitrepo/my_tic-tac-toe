@@ -28,6 +28,21 @@
 
     <main>
       <section class="mt-4">
+        <div id="game-menu" class="col-4">
+          <div>
+            <div>
+              <label for="playerX"></label>
+              <input id="playerX" class="form-group" type="text" placeholder="Enter your name here">
+            </div>
+            <div>
+              <label for="playerO"></label>
+              <input id="playerO" class="form-group" type="text" placeholder="Enter your name here">
+            </div>
+          </div>
+          <div class="menu-btn">
+            <button id="start" class="btn btn-primary">Start</button>
+          </div>
+        </div>
         <div class="col-8 mx-auto board board-hidden" id="board-game">
           <div
             class="col-12 btn-group-vertical mx-auto my-3"
@@ -105,7 +120,8 @@
     <footer></footer>
 
     <!-- Optional JavaScript -->
-    <script type="module" src="./JS/app.js"></script>
+    <!-- <script type="module" src="./JS/app.js"></script> -->
+    <script type="module" src="./app.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
