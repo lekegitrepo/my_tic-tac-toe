@@ -63,10 +63,12 @@ const player = (name, token) => {
 const gameManager = (player1, player2) => {
     let currentPlayer = player1;
 
-    const getCurrentPlayer = () => {
+    const roundSelector = () => {
       currentPlayer = (currentPlayer === player1) ? player2 : player1;
       return currentPlayer;
     }
+
+    const getCurrentPlayer = () => currentPlayer;
 
     const winner = (winToken) => {
       if(winToken){
@@ -79,7 +81,7 @@ const gameManager = (player1, player2) => {
         }
       }
     }
-    return {getCurrentPlayer, winner, currentPlayer};
+    return {getCurrentPlayer, winner, roundSelector};
 };
 
 const ui = (() => {
@@ -91,15 +93,28 @@ const ui = (() => {
   return {tileMarker};
 })();
 
-let playerX = player('playerX', 'X');
-let playerO = player('playerO', 'O');
+let player1 = document.getElementById('playerX').value;
+let player2 = document.getElementById('playerO').value;
+if(player1 == '' && player2 == ''){
+  player1 = 'playerX';
+  player2 = 'playerO';
+}else if(player1 == ''){
+  player1 = 'playerX';
+}else if(player2 == ''){
+  player1 = 'playerO';
+}
+
+let menu = document.getElementById('game-menu');
+
+let startBtn = document.getElementById('start');
+startBtn.addEventListener('click', initializePlay);
+
+let playerX = player(player1, 'X');
+let playerO = player(player2, 'O');
 let gm = gameManager(playerO, playerX);
 
 console.log(playerX.token);
 console.log(gm.getCurrentPlayer().token);
-
-let startBtn = document.getElementById('start');
-startBtn.addEventListener('click', initializePlay);
 
 function handleGame() {
   //event.removeEventListener("click", 'method here');
@@ -111,15 +126,21 @@ function initializePlay() {
     boardTiles.style.display = 'block';
     boardTiles.addEventListener('click', (e) => {
       //e.stopPropagation()
-      if(!gameBoard.checkWinPattern()){
-        ui.tileMarker(e.target, gm.getCurrentPlayer().token)
-        gameBoard.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
-      }else{
+      if(gameBoard.checkWinPattern() == 'X' || gameBoard.checkWinPattern() == 'O'){
         boardTiles.removeEventListener('click', handleGame)
+        console.log(gameBoard.checkWinPattern())
         console.log('listener removed')
-        // ui.tileMarker(e.target, gm.getCurrentPlayer().token)
-        // board.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
+        //ui.tileMarker(e.target, gm.getCurrentPlayer().token)
+        //gameBoard.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
+      }else{
+        // boardTiles.removeEventListener('click', handleGame)
+        // console.log('listener removed')
+        ui.tileMarker(e.target, gm.getCurrentPlayer().token)
+        console.log(gm.getCurrentPlayer().name)
+        console.log(gm.getCurrentPlayer().token)
+        gameBoard.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.getCurrentPlayer().token)
+        gm.roundSelector()
       }
     });
-    startBtn.style.display = 'none';
+    menu.style.display = 'none';
   }
