@@ -8,4 +8,16 @@ export class UI {
       tile.textContent = token;
     }
   }
+
+  hideElement(element){
+    element.style.display = 'none';
+  }
+
+  displayElementBlock(element){
+    element.style.display = 'block';
+  }
+
+  displayElementInline(element){
+    element.style.display = 'inline';
+  }
 }
