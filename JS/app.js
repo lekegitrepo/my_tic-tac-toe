@@ -14,10 +14,12 @@ let gm = new GameManager(playerX, PlayerO);
 const startMenu = document.getElementById('start-menu');
 const boardTiles = document.getElementById('game');
 const startBtn = document.getElementById('start');
+const nextRound = document.getElementById('next-round');
+const newGame = document.getElementById('new-game');
+
 startBtn.addEventListener('click', initializePlay);
 
 function handleGame() {
-  console.log('activate new buttons');
 }
 
 function initializePlay() {
@@ -30,9 +32,11 @@ function initializePlay() {
       if(board.checkWinPattern()){
         console.log('game won!')
         boardTiles.removeEventListener('click', handleGame)
+        ui.displayElementsBlock([nextRound, newGame])
         console.log('listener removed')
       }else if (board.checkWinPattern() == false){
         boardTiles.removeEventListener('click', handleGame)
+        ui.displayElementsBlock([nextRound, newGame])
         console.log('listener removed')
         console.log('the game is draw')
       }
