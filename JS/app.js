@@ -4,13 +4,6 @@ import { GameManager } from './game.js';
 import { UI } from './UI.js';
 
 
-// console.log(boardTiles.length)
-// for(let i = 0; i < boardTiles.length; i++){
-//     boardTiles[i].addEventListener('click', (e) => {
-//         boardTiles[i].textContent = 'X and O';
-//     });
-// }
-
 let board = new Board();
 let ui = new UI();
 let playerX = new Player('playerX', 'X');
@@ -21,7 +14,6 @@ let startBtn = document.getElementById('start');
 startBtn.addEventListener('click', initializePlay);
 
 function handleGame() {
-  //event.removeEventListener("click", 'method here');
   console.log('activate new buttons');
 }
 
@@ -33,11 +25,15 @@ function initializePlay() {
     if(!board.checkWinPattern()){
       ui.tileMarker(e.target, gm.getCurrentPlayer().token)
       board.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
-    }else{
-      boardTiles.removeEventListener('click', handleGame)
-      console.log('listener removed')
-      // ui.tileMarker(e.target, gm.getCurrentPlayer().token)
-      // board.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
+      if(board.checkWinPattern()){
+        console.log('game won!')
+        boardTiles.removeEventListener('click', handleGame)
+        console.log('listener removed')
+      }else if (board.checkWinPattern() == false){
+        boardTiles.removeEventListener('click', handleGame)
+        console.log('listener removed')
+        console.log('the game is draw')
+      }
     }
   });
   document.getElementById('start-menu').style.display = 'none';

@@ -51,6 +51,8 @@ export class Board {
       return this.checkRows();
     }else if(this.checkDiagonals()){
       return this.checkDiagonals()
+    }else if(!this._board.includes('')){
+      return false;
     }
   }
 
