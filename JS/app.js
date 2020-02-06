@@ -16,8 +16,20 @@ const boardTiles = document.getElementById('game');
 const startBtn = document.getElementById('start');
 const nextRound = document.getElementById('next-round');
 const newGame = document.getElementById('new-game');
+const allTiles = document.getElementsByClassName('board-tile');
 
 startBtn.addEventListener('click', initializePlay);
+
+nextRound.addEventListener('click', () => {
+  ui.clearBoard(allTiles)
+  board.resetBoard()
+})
+
+newGame.addEventListener('click', () => {
+  ui.clearBoard(allTiles)
+  board.resetBoard()
+})
+
 
 function handleGame() {
 }

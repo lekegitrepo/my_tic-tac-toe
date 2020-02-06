@@ -9,6 +9,12 @@ export class UI {
     }
   }
 
+  clearBoard(tiles){
+    Array.from(tiles).forEach((tile) => {
+      tile.textContent = ''
+    })
+  }
+
   hideElement(element){
     element.style.display = 'none';
   }
