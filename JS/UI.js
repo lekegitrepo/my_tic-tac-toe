@@ -22,7 +22,7 @@ export class UI {
   }
 
   displayElementsBlock(elements){
-    element.array.forEach(element => {
+    elements.forEach(element => {
       element.style.display = 'block'
     });
   }
