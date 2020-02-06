@@ -20,4 +20,10 @@ export class UI {
   displayElementInline(element){
     element.style.display = 'inline';
   }
+
+  displayElementsBlock(elements){
+    element.array.forEach(element => {
+      element.style.display = 'block'
+    });
+  }
 }
