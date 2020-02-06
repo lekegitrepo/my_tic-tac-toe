@@ -1,4 +1,4 @@
-#game{
+#game, #new-game, #next-round {
   display: none;
 }
 .board-tile {
