@@ -17,11 +17,28 @@ let playerX = new Player('playerX', 'X');
 let PlayerO = new Player('playerO', 'O');
 let gm = new GameManager(playerX, PlayerO);
 
-let boardTiles = document.getElementsByClassName('board-tile');
-[...boardTiles].forEach(element => {
-  element.addEventListener('click', (e) => {
-    ui.tileMarker(element, gm.getCurrentPlayer().token)
-    board.setBoardTile(parseInt(element.getAttribute('data-position')), gm.currentPlayer.token)
-    gm.winner(board.checkWinPattern())
-  })
-});
+let startBtn = document.getElementById('start');
+startBtn.addEventListener('click', initializePlay);
+
+function handleGame() {
+  //event.removeEventListener("click", 'method here');
+  console.log('activate new buttons');
+}
+
+function initializePlay() {
+  let boardTiles = document.getElementById('game');
+  boardTiles.style.display = 'block';
+  boardTiles.addEventListener('click', (e) => {
+    //e.stopPropagation()
+    if(!board.checkWinPattern()){
+      ui.tileMarker(e.target, gm.getCurrentPlayer().token)
+      board.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
+    }else{
+      boardTiles.removeEventListener('click', handleGame)
+      console.log('listener removed')
+      // ui.tileMarker(e.target, gm.getCurrentPlayer().token)
+      // board.setBoardTile(parseInt(e.target.getAttribute('data-position')), gm.currentPlayer.token)
+    }
+  });
+  document.getElementById('start-menu').style.display = 'none';
+}
