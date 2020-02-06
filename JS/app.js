@@ -10,7 +10,10 @@ let playerX = new Player('playerX', 'X');
 let PlayerO = new Player('playerO', 'O');
 let gm = new GameManager(playerX, PlayerO);
 
-let startBtn = document.getElementById('start');
+
+const startMenu = document.getElementById('start-menu');
+const boardTiles = document.getElementById('game');
+const startBtn = document.getElementById('start');
 startBtn.addEventListener('click', initializePlay);
 
 function handleGame() {
@@ -18,8 +21,7 @@ function handleGame() {
 }
 
 function initializePlay() {
-  let boardTiles = document.getElementById('game');
-  boardTiles.style.display = 'block';
+  ui.displayElementBlock(boardTiles);
   boardTiles.addEventListener('click', (e) => {
     //e.stopPropagation()
     if(!board.checkWinPattern()){
@@ -36,5 +38,5 @@ function initializePlay() {
       }
     }
   });
-  document.getElementById('start-menu').style.display = 'none';
+  ui.hideElement(startMenu);
 }
